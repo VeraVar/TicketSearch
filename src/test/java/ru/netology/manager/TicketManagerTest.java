@@ -3,6 +3,7 @@ package ru.netology.manager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Ticket;
+import ru.netology.domain.TicketComparatorByFlightTime;
 import ru.netology.repository.TicketRepository;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -29,7 +30,7 @@ public class TicketManagerTest {
     @Test
     public void shouldFindTicketsIfExists(){
         Ticket[] expected = {ticket1, ticket2};
-        Ticket[] actual = manager.findAll("airport1", "airport2");
+        Ticket[] actual = manager.findAll("airport1", "airport2", new TicketComparatorByFlightTime());
 
         assertArrayEquals(expected, actual);
     }
@@ -37,7 +38,7 @@ public class TicketManagerTest {
     @Test
     public void shouldNotFindTicketsIfNotExists(){
         Ticket[] expected = {};
-        Ticket[] actual = manager.findAll("airport5", "airport6");
+        Ticket[] actual = manager.findAll("airport5", "airport6", new TicketComparatorByFlightTime());
 
         assertArrayEquals(expected, actual);
     }
