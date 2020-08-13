@@ -13,7 +13,7 @@ public class TicketManagerTest {
     private TicketRepository repository = new TicketRepository();
     private TicketManager manager = new TicketManager(repository);
 
-    private Ticket ticket1 = new Ticket(1, 100, "airport1", "airport2", 90);
+    private Ticket ticket1 = new Ticket(1, 100, "airport1", "airport2", 60);
     private Ticket ticket2 = new Ticket(2, 200, "airport1", "airport2", 90);
     private Ticket ticket3 = new Ticket(3, 300, "airport3", "airport4", 120);
     private Ticket ticket4 = new Ticket(4, 400, "airport4", "airport5", 180);
